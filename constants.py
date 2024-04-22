@@ -1,0 +1,4 @@
+DB_FILE = 'resources/data/.db.json'
+
+DEFAULT_FILE_PATH_KEY = 'DEFAULT_FILE_PATH'
+OUTPUT_DIR_KEY = 'OUTPUT_DIR'
