@@ -206,14 +206,14 @@ def drop_unnecessary_columns(input_df: pd.DataFrame):
 def color_price(row, price_col_index):
     my_price = row['Price']
     if pd.notnull(my_price):
-        my_price = float(my_price)
+        my_price = convert_price_to_float(my_price)
         reuter = row['Reuter']
         sanitino = row['Sanitino']
         if reuter == '' and sanitino == '':
             return ['background-color: red' if i == price_col_index else '' for i in range(len(row))]
         elif pd.notnull(reuter) or pd.notnull(sanitino) or reuter != '' or sanitino != '':
             init_list = [my_price, reuter, sanitino]
-            list_to_compare = [float(el) for el in init_list if (pd.notnull(el) and el != '')]
+            list_to_compare = [convert_price_to_float(el) for el in init_list if (el is not None and pd.notnull(el) and el != '')]
 
             is_target_max = max(list_to_compare) == my_price
             is_target_min = min(list_to_compare) == my_price

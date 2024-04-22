@@ -44,7 +44,7 @@ class Worker(QObject):
         self.progress.emit(progress)
 
     def report_progress_msg(self, msg):
-        self.progress.emit(msg)
+        self.msg.emit(msg)
     
     # def start_scraping_data(self):
     #     try:
